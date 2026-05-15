@@ -1,0 +1,12 @@
+stream-capture.updatenowapp.com {
+	root * /home/ubuntu/interview/frontend/dist
+	file_server
+
+	handle /interview/* {
+		reverse_proxy localhost:8000
+	}
+
+	handle /voice/* {
+		reverse_proxy localhost:8000
+	}
+}

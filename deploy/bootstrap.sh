@@ -1,58 +1,52 @@
-#!/usr/bin/env bash
-# Run once on a fresh Ubuntu server to set up the interview app.
-# Usage: bash bootstrap.sh <domain>
-# Example: bash bootstrap.sh stream-capture.updatenowapp.com
+#!/bin/bash
+# One-time server setup for the interview app.
+# Run as root: sudo bash bootstrap.sh
 set -euo pipefail
 
-DOMAIN="${1:?Usage: bash bootstrap.sh <domain>}"
 APP_DIR="/home/ubuntu/interview"
-VENV_DIR="/home/ubuntu/venv"
+DOMAIN="stream-capture.updatenowapp.com"
 
 echo "==> Installing system packages"
-sudo apt-get update -q
-sudo apt-get install -y -q debian-keyring debian-archive-keyring apt-transport-https curl
+apt-get update -q
+apt-get install -y -q git
+
+# Install uv for ubuntu user if not present
+if ! su - ubuntu -c "command -v uv" &>/dev/null; then
+    echo "==> Installing uv"
+    su - ubuntu -c "curl -LsSf https://astral.sh/uv/install.sh | sh"
+fi
 
 # Install Caddy if not present
 if ! command -v caddy &>/dev/null; then
     echo "==> Installing Caddy"
-    curl -fsSL https://dl.cloudsmith.io/public/caddy/stable/gpg.key \
-        | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
-    curl -fsSL https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt \
-        | sudo tee /etc/apt/sources.list.d/caddy-stable.list
-    sudo apt-get update -q
-    sudo apt-get install -y -q caddy
+    apt-get install -y -q debian-keyring debian-archive-keyring apt-transport-https curl
+    curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' \
+        | gpg --batch --no-tty --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+    curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' \
+        | tee /etc/apt/sources.list.d/caddy-stable.list
+    apt-get update -q
+    apt-get install -y -q caddy
 fi
 
-echo "==> Creating Python venv"
-python3 -m venv "$VENV_DIR"
+echo "==> Cloning repo"
+if [ ! -d "$APP_DIR/.git" ]; then
+    git clone https://github.com/shellef/interview.git "$APP_DIR"
+    chown -R ubuntu:ubuntu "$APP_DIR"
+fi
 
 echo "==> Installing Python dependencies"
-"$VENV_DIR/bin/pip" install --quiet -r "$APP_DIR/requirements.txt"
+su - ubuntu -c "cd $APP_DIR && ~/.local/bin/uv sync"
 
 echo "==> Setting file permissions for Caddy"
 chmod o+x /home/ubuntu
 chmod -R o+r "$APP_DIR/frontend/dist"
 
-echo "==> Writing Caddy config"
-sudo tee /etc/caddy/Caddyfile > /dev/null << CADDYEOF
-$DOMAIN {
-    root * $APP_DIR/frontend/dist
-    file_server
-
-    handle /interview/* {
-        reverse_proxy localhost:8000
-    }
-
-    handle /voice/* {
-        reverse_proxy localhost:8000
-    }
-}
-CADDYEOF
-
-sudo systemctl reload caddy
+echo "==> Writing Caddyfile"
+cp "$APP_DIR/deploy/Caddyfile" /etc/caddy/Caddyfile
+systemctl reload caddy
 
 echo "==> Installing systemd services"
-sudo tee /etc/systemd/system/interview-api.service > /dev/null << 'SVCEOF'
+cat > /etc/systemd/system/interview-api.service << 'EOF'
 [Unit]
 Description=Interview API (FastAPI)
 After=network.target
@@ -61,15 +55,17 @@ After=network.target
 User=ubuntu
 WorkingDirectory=/home/ubuntu/interview/backend
 EnvironmentFile=/home/ubuntu/interview/.env
-ExecStart=/home/ubuntu/venv/bin/uvicorn app:app --host 127.0.0.1 --port 8000
+ExecStart=/home/ubuntu/.local/bin/uv run --directory /home/ubuntu/interview uvicorn app:app --host 127.0.0.1 --port 8000
 Restart=always
 RestartSec=5
+StandardOutput=journal
+StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
-SVCEOF
+EOF
 
-sudo tee /etc/systemd/system/interview-agent.service > /dev/null << 'SVCEOF'
+cat > /etc/systemd/system/interview-agent.service << 'EOF'
 [Unit]
 Description=Interview Voice Agent (LiveKit)
 After=network.target
@@ -78,21 +74,25 @@ After=network.target
 User=ubuntu
 WorkingDirectory=/home/ubuntu/interview/backend
 EnvironmentFile=/home/ubuntu/interview/.env
-ExecStart=/home/ubuntu/venv/bin/python voice_agent.py start
+ExecStart=/home/ubuntu/.local/bin/uv run --directory /home/ubuntu/interview python voice_agent.py start
 Restart=always
 RestartSec=5
+StandardOutput=journal
+StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
-SVCEOF
+EOF
 
-sudo systemctl daemon-reload
-sudo systemctl enable --now interview-api
-sudo systemctl enable --now interview-agent
+systemctl daemon-reload
+systemctl enable --now interview-api
+systemctl enable --now interview-agent
 
 echo ""
-echo "==> Done. Services status:"
-sudo systemctl status interview-api --no-pager | grep -E "Active|running|failed"
-sudo systemctl status interview-agent --no-pager | grep -E "Active|running|failed"
+echo "=== Setup complete ==="
 echo ""
-echo "App live at https://$DOMAIN"
+echo "Next steps:"
+echo "  1. Place .env at $APP_DIR/.env"
+echo "  2. sudo systemctl restart interview-api interview-agent"
+echo ""
+echo "App will be live at https://$DOMAIN"
