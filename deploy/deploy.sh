@@ -20,7 +20,7 @@ fi
 # Update Caddyfile
 echo "==> Updating Caddyfile"
 scp "$SCRIPT_DIR/Caddyfile" ubuntu@"$HOST":/tmp/Caddyfile
-ssh -t ubuntu@"$HOST" "sudo cp /tmp/Caddyfile /etc/caddy/Caddyfile && sudo systemctl reload caddy"
+ssh -n ubuntu@"$HOST" "sudo cp /tmp/Caddyfile /etc/caddy/Caddyfile && sudo systemctl reload caddy"
 
 # Build frontend and commit dist
 echo "==> Building frontend"
@@ -36,15 +36,15 @@ git push
 
 # Pull and restart on server
 echo "==> Deploying on server"
-ssh ubuntu@"$HOST" '
+ssh -n ubuntu@"$HOST" '
     cd ~/interview
     git pull
     export PATH="$HOME/.local/bin:$PATH"
     uv sync
     chmod -R o+r frontend/dist
+    sudo systemctl restart interview-api interview-agent
 '
-ssh -t ubuntu@"$HOST" 'sudo systemctl restart interview-api interview-agent'
 
 echo ""
 echo "==> Done."
-ssh -t ubuntu@"$HOST" 'sudo systemctl status interview-api interview-agent --no-pager | grep -E "Active|running|failed"'
+ssh -n ubuntu@"$HOST" 'sudo systemctl status interview-api interview-agent --no-pager | grep -E "Active|running|failed"'
