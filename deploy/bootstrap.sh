@@ -30,7 +30,7 @@ fi
 
 echo "==> Cloning repo"
 if [ ! -d "$APP_DIR/.git" ]; then
-    git clone https://github.com/shellef/interview.git "$APP_DIR"
+    git clone -b master https://github.com/shellef/interview.git "$APP_DIR"
     chown -R ubuntu:ubuntu "$APP_DIR"
 fi
 
