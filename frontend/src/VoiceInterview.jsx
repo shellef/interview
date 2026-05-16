@@ -29,6 +29,7 @@ export default function VoiceInterview() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ role: 'commercial airline pilot' }),
       })
+      if (res.status === 401) { window.location.href = '/login'; return }
       if (!res.ok) throw new Error(`Server error: ${res.status}`)
       const { token, url } = await res.json()
 

@@ -9,4 +9,12 @@ stream-capture.updatenowapp.com {
 	handle /voice/* {
 		reverse_proxy localhost:8000
 	}
+
+	handle /login* {
+		reverse_proxy localhost:8000
+	}
+
+	handle /logout {
+		reverse_proxy localhost:8000
+	}
 }

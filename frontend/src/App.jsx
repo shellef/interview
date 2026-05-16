@@ -3,6 +3,12 @@ import VoiceInterview from './VoiceInterview.jsx'
 
 const API = '/interview'
 
+async function apiFetch(url, opts = {}) {
+  const res = await fetch(url, opts)
+  if (res.status === 401) { window.location.href = '/login'; return null }
+  return res
+}
+
 function Verdict({ verdict }) {
   const level = verdict?.level ?? 'unclear'
   return (
@@ -72,7 +78,7 @@ export default function App() {
     setStatus(`Running ${numTurns}-turn interview for "${role}"…`)
 
     try {
-      const res = await fetch(`${API}/start`, {
+      const res = await apiFetch(`${API}/start`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ role, num_turns: numTurns }),
@@ -96,7 +102,7 @@ export default function App() {
     setLoading(true)
     setStatus('Running next exchange…')
     try {
-      const res = await fetch(`${API}/${sessionId}/next`, { method: 'POST' })
+      const res = await apiFetch(`${API}/${sessionId}/next`, { method: 'POST' })
       if (!res.ok) throw new Error(`Server error: ${res.status}`)
       const data = await res.json()
       setTurns(data.turns)
@@ -114,7 +120,7 @@ export default function App() {
     setLoading(true)
     setStatus('Judge is evaluating the transcript…')
     try {
-      const res = await fetch(`${API}/${sessionId}/judge`, { method: 'POST' })
+      const res = await apiFetch(`${API}/${sessionId}/judge`, { method: 'POST' })
       if (!res.ok) throw new Error(`Server error: ${res.status}`)
       const data = await res.json()
       setVerdict(data.verdict)

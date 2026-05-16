@@ -9,6 +9,7 @@ dependencies = [
     "python-dotenv>=1.0.0",
     "livekit-agents[openai,silero,deepgram]~=1.0",
     "livekit-api>=0.7.0",
+    "itsdangerous>=2.0",
 ]
 
 [build-system]
