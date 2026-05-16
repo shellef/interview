@@ -69,17 +69,17 @@ LOGIN_HTML = """<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login — AI Interview</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #0f1117;
-           display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-    .box { background: #1e2433; border-radius: 10px; padding: 40px 36px;
-           max-width: 340px; width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
-    h1 { font-size: 1.25em; margin-bottom: 28px; text-align: center; color: #f8fafc; }
-    .btn-google { display: block; background: #4285F4; color: white;
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{ font-family: Arial, sans-serif; background: #0f1117;
+           display: flex; justify-content: center; align-items: center; min-height: 100vh; }}
+    .box {{ background: #1e2433; border-radius: 10px; padding: 40px 36px;
+           max-width: 340px; width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }}
+    h1 {{ font-size: 1.25em; margin-bottom: 28px; text-align: center; color: #f8fafc; }}
+    .btn-google {{ display: block; background: #4285F4; color: white;
                   padding: 12px 20px; border-radius: 6px; text-decoration: none;
-                  text-align: center; font-size: 0.95em; font-weight: 500; }
-    .btn-google:hover { background: #3367D6; }
-    .error { color: #fc8181; margin-top: 16px; text-align: center; font-size: 0.9em; }
+                  text-align: center; font-size: 0.95em; font-weight: 500; }}
+    .btn-google:hover {{ background: #3367D6; }}
+    .error {{ color: #fc8181; margin-top: 16px; text-align: center; font-size: 0.9em; }}
   </style>
 </head>
 <body>
