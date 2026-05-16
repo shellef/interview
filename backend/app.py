@@ -159,6 +159,13 @@ async def login_google_callback(request: Request):
     return RedirectResponse("/")
 
 
+@app.get("/auth/check")
+async def auth_check(request: Request):
+    if "user" not in request.session:
+        raise HTTPException(status_code=401)
+    return {"user": request.session["user"]}
+
+
 @app.get("/logout")
 async def logout(request: Request):
     request.session.clear()
