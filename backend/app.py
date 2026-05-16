@@ -6,9 +6,12 @@ import urllib.parse
 import urllib.request
 import uuid
 
+from pathlib import Path
+
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
 from livekit import api as lkapi
 from pydantic import BaseModel
 from starlette.middleware.sessions import SessionMiddleware
@@ -16,6 +19,10 @@ from starlette.middleware.sessions import SessionMiddleware
 from interview import InterviewSession
 
 app = FastAPI(title="AI Interview")
+
+_DIST = Path(__file__).parent.parent / "frontend" / "dist"
+if (_DIST / "assets").exists():
+    app.mount("/assets", StaticFiles(directory=_DIST / "assets"), name="assets")
 
 app.add_middleware(SessionMiddleware, secret_key=os.environ.get("SESSION_SECRET_KEY", secrets.token_hex(32)))
 app.add_middleware(
@@ -157,6 +164,13 @@ async def login_google_callback(request: Request):
 
     request.session["user"] = email
     return RedirectResponse("/")
+
+
+@app.get("/")
+async def root(request: Request):
+    if "user" not in request.session:
+        return RedirectResponse("/login")
+    return FileResponse(_DIST / "index.html")
 
 
 @app.get("/auth/check")

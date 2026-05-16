@@ -1,32 +1,3 @@
 stream-capture.updatenowapp.com {
-	handle /login* {
-		reverse_proxy localhost:8000
-	}
-
-	handle /logout {
-		reverse_proxy localhost:8000
-	}
-
-	handle /auth/* {
-		reverse_proxy localhost:8000
-	}
-
-	forward_auth localhost:8000 {
-		uri /auth/check
-	}
-
-	handle_errors 401 {
-		redir /login 302
-	}
-
-	handle /interview/* {
-		reverse_proxy localhost:8000
-	}
-
-	handle /voice/* {
-		reverse_proxy localhost:8000
-	}
-
-	root * /home/ubuntu/interview/frontend/dist
-	file_server
+	reverse_proxy localhost:8000
 }

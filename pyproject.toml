@@ -10,6 +10,7 @@ dependencies = [
     "livekit-agents[openai,silero,deepgram]~=1.0",
     "livekit-api>=0.7.0",
     "itsdangerous>=2.0",
+    "python-multipart>=0.0.9",
 ]
 
 [build-system]
