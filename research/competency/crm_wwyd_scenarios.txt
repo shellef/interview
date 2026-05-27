@@ -1,0 +1,177 @@
+SOURCE: https://airmappr.com/articles/career/crm-scenario-questions-pilot-interview
+SOURCE: https://www.airlinepilotforums.com/career-questions/104065-what-would-you-do-interview-question.html
+SOURCE: https://www.pilotmall.com/blogs/news/20-airline-pilot-interview-questions-answers-preparation-tips
+
+=== WHAT WWYD (WHAT WOULD YOU DO) QUESTIONS TEST ===
+
+Airlines use WWYD/scenario questions to assess:
+- Crew Resource Management (CRM) — do you communicate, collaborate, escalate?
+- Decision-making under pressure — do you use a structured process?
+- Safety culture — will you speak up even to a captain?
+- Authority gradient management — assertive but not aggressive
+- Procedural adherence vs. judgment
+
+Key principle: "What is RIGHT, not WHO is right."
+
+Assessors evaluate against NOTECHS competencies:
+1. Cooperation — how you work with crew
+2. Leadership and management — how you handle authority
+3. Situational awareness — how you read situations
+4. Decision-making — how you reach courses of action
+
+=== DECISION-MAKING FRAMEWORKS ===
+
+FORDEC (used by Lufthansa group airlines):
+F — Facts: What do we know?
+O — Options: What are our choices?
+R — Risks: What are the risks of each option?
+D — Decision: What are we doing?
+E — Execution: Do it
+C — Check: Did it work? Reassess.
+
+TDODAR (used by UK carriers):
+T — Time: How much time do we have?
+D — Diagnose: What is the problem?
+O — Options: What are our options?
+D — Decide: Choose a course of action
+A — Act: Execute
+R — Review: Check the outcome
+
+=== GRADUATED ASSERTIVENESS MODEL ===
+
+When dealing with a CRM issue with a captain, use graduated escalation:
+1. QUERY — "I noticed we're below the minimum safe altitude — is that correct?"
+2. ASSERT — State your concern clearly: "I'm not comfortable with this. We need to climb."
+3. CHALLENGE — More direct: "Captain, we must climb now for terrain separation."
+4. EMERGENCY — If all else fails and safety is compromised: "I'm declaring an emergency."
+
+Most SOP deviations are unintentional — a clear, non-judgmental assertion resolves ~90% of cases.
+
+=== 9 CORE SCENARIO THEMES WITH SAMPLE ANSWERS ===
+
+--- SCENARIO 1: Captain making unsafe decision ---
+"You're at 35,000 feet. The Captain decides to descend below minimum vectoring altitude because he 'knows the terrain like the back of his hand.' You're the FO. What do you do?"
+
+Strong answer approach:
+- Immediately query: "Captain, I show us below the minimum safe altitude here — I'm not comfortable with that. Can we verify?"
+- Reference the chart/data, not personal preference
+- Escalate if necessary: "I need to call it out — this doesn't look safe to me."
+- If he ignores you: "Captain, I'm going to need to make a call to ATC."
+- Never: silently comply; argue aggressively; just take over the controls
+
+Key elements: Stay calm, use data, communicate clearly, escalate professionally.
+
+--- SCENARIO 2: Captain deviating from SOP ---
+"Your captain consistently skips a checklist item because he says it's unnecessary. What do you do?"
+
+Strong answer approach:
+- First occurrence: politely draw attention to it ("I don't see us getting through that checklist item — want me to call it out?")
+- Pattern: address it directly but respectfully, one-on-one before the flight
+- Not improving: document, consider ASAP/SMS report, involve chief pilot
+- Never: ignore it; confront publicly; threaten immediately
+
+--- SCENARIO 3: Unstabilized approach ---
+"You're at 500 feet, unstabilized, captain is continuing the approach. What do you do?"
+
+Strong answer:
+- "Unstabilized" call-out immediately per SOPs
+- If no response: "Going around" — call it and initiate
+- You have the authority and responsibility to call a go-around
+- Document afterward; debrief calmly
+
+--- SCENARIO 4: Weather deterioration ---
+"You're on final, weather is now below minimums. Captain wants to continue. What do you do?"
+
+Strong answer:
+- Reference the minimums clearly: "Our minimums are 200/half — current ATIS shows 100 and RVR 600."
+- "I don't think we're legal to continue — we need to go missed."
+- If captain disagrees: firmly state you cannot continue; escalate as needed
+- Discuss FORDEC or TDODAR framework — time allows for brief process
+
+--- SCENARIO 5: Intoxicated captain ---
+"You show up for a flight and your captain appears to be impaired/intoxicated. What do you do?"
+
+Strong answer:
+- Do NOT fly — this is a bright line
+- Address privately and respectfully: "I'm concerned about how you're doing today — I don't think we should fly."
+- Contact operations/chief pilot immediately
+- Document everything
+- Your career concern is secondary to safety
+
+--- SCENARIO 6: Pilot incapacitation ---
+"Halfway through the flight, your captain becomes incapacitated. What do you do?"
+
+Strong answer:
+- Take the controls immediately
+- Secure the incapacitated pilot (seatbelt, move if possible)
+- Declare emergency with ATC
+- Brief cabin crew (PAN PAN or MAYDAY)
+- Divert to nearest suitable airport
+- Get assistance from senior cabin crew or deadheading pilot if available
+- Follow incapacitation checklist
+
+--- SCENARIO 7: Fuel dilemma ---
+"You're 45 minutes from destination, weather has deteriorated, your alternate is also marginal, and you're at minimum fuel. What do you do?"
+
+Strong answer:
+- Declare minimum fuel to ATC (not yet emergency, but priority handling)
+- Request direct routing to destination
+- Assess: if destination unlikely, declare MAYDAY fuel emergency
+- Better to declare early — never let fuel become an emergency if it can be avoided
+- Discuss options systematically (FORDEC)
+
+--- SCENARIO 8: Crew conflict ---
+"Your FO and a flight attendant are in a heated argument before boarding. What do you do?"
+
+Strong answer:
+- Separate them immediately, address privately
+- As captain: you have authority and responsibility for crew harmony
+- Assess whether either is fit to fly (emotional state)
+- Delay departure if necessary
+- Brief both on professional expectations
+- Document; debrief after flight
+
+--- SCENARIO 9: Fatigue ---
+"You're on day 4 of a trip, exhausted, legal to fly but not feeling alert. Captain says to push through. What do you do?"
+
+Strong answer:
+- You have the authority and obligation to call fatigue
+- "I need to be honest — I'm not feeling fit to fly safely today."
+- Fatigue call is protected under most airline policies and SMS
+- Document the fatigue
+- Discuss with captain and operations
+- Do NOT fly when you feel impaired by fatigue
+
+=== WHAT INTERVIEWERS ARE WATCHING FOR ===
+
+RED FLAGS (will get you rejected):
+- Jumping straight to action without process/communication
+- Undermining captain's authority aggressively
+- Complete passivity — just going along with unsafe behavior
+- Hero narrative — "I would just take over"
+- Ignoring crew, going straight to ATC without communication
+- Treating it as a binary decision without exploring options
+
+GREEN FLAGS (what they want to see):
+- Systematic approach (use a framework)
+- Communication first — query, assert, challenge
+- References to specific SOPs/regulations
+- Calm, professional demeanor even in extremis
+- Appropriate escalation ladder
+- Willingness to be the bad guy for safety
+- Documentation and post-event debrief awareness
+
+=== COMMON WWYD QUESTIONS ACROSS AIRLINES ===
+
+1. Captain arrives with alcohol on breath — what do you do?
+2. You're cleared for an approach below minimums — what do you do?
+3. Dispatch is pressuring you to depart with questionable MEL item — what do you do?
+4. ATC clears you to an altitude that would cause TCAS conflict — what do you do?
+5. Your FO is flying, clearly fatigued and making errors — what do you do?
+6. Passenger is combative and needs to be removed — what do you do?
+7. Maintenance says the aircraft is airworthy but you're not satisfied — what do you do?
+8. Mid-flight, your FO disagrees strongly with your routing decision — how do you handle it?
+9. You see another aircraft on a collision course and ATC hasn't called traffic — what do you do?
+10. Engine failure on takeoff at V1 — walk me through what you do.
+11. Rapid decompression at FL350 — what are your immediate actions?
+12. Windshear warning on approach — what do you do?

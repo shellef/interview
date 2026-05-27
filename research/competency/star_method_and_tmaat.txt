@@ -1,0 +1,143 @@
+SOURCE: https://emeraldcoastinterviewconsulting.com/blog/how-to-answer-star-method-questions-like-a-pro-pilot/
+SOURCE: https://emeraldcoastinterviewconsulting.com/blog/top-10-pilot-interview-questions-and-how-to-answer-them-expert-guide-for-2025/
+SOURCE: https://www.airlinepilotforums.com/career-questions/61726-tmaat-questions.html
+
+=== STAR METHOD FRAMEWORK ===
+
+The STAR method comprises four components:
+- Situation: Describe the specific situation or challenge you faced
+- Task: Explain your role and responsibility in that situation
+- Action: Detail the specific steps you took to address the issue
+- Result: Highlight the outcome of your actions, emphasizing positive results
+
+SOUTHWEST uses START: Situation, Task, Action, Result, Takeaway
+
+Airlines evaluate beyond technical qualifications, assessing decision-making, leadership, communication, and problem-solving abilities essential for cockpit safety and crew dynamics.
+
+ANSWER LENGTH: Keep responses to 1-2 minutes (2-3 minutes max for complex scenarios). Practice out loud.
+
+=== COMPETENCY FRAMEWORK (NOTECHS) ===
+
+European aviation uses NOTECHS (Non-Technical Skills) framework, mapping answers against four domains:
+1. Cooperation — how you work with crew
+2. Leadership and management — how you handle authority
+3. Situational awareness — how you read situations
+4. Decision-making — how you reach courses of action under uncertainty
+
+=== TOP 10 PILOT INTERVIEW QUESTIONS WITH GUIDANCE ===
+
+Q1: Tell Us About Yourself
+- Keep it aviation-focused, 90-120 seconds
+- Cover: current role, training, certifications, experience
+- End with why you want THIS airline
+
+Q2: Why Do You Want to Work for Our Airline?
+- Research company mission, values, and fleet
+- Connect their culture to your career goals
+- Never say "pay" or "schedule" as primary reasons
+
+Q3: Describe a Time You Made a Tough Decision
+- Use STAR method emphasizing safety and communication
+- Show you followed procedures AND used judgment
+- Example: diversion decision, go-around, maintenance deferral
+
+Q4: How Do You Handle Stress?
+- Show resilience through pre-flight rituals, CRM practices
+- Give a real example of performing under pressure
+- Don't say "I don't get stressed" — show management techniques
+
+Q5: If Your Captain Broke a Regulation
+- Address respectfully using CRM
+- Prioritize safety and FAA compliance
+- Show you would speak up assertively but professionally
+- Never say you'd just go along with it
+
+Q6: Tell Me About a Mistake You Made
+- Own it — don't blame others or external factors
+- Explain what corrective action you took
+- Share the lesson learned and how you changed behavior
+
+Q7: How Do You Prepare for a Flight?
+- Detail: weather briefing, route planning, weight/balance, NOTAMs, aircraft readiness
+- Show systematic and thorough approach
+- Mention crew briefing and threat identification
+
+Q8: How Do You Stay Current?
+- Mention: industry publications, FAA updates, simulator training, safety seminars
+- Show commitment to continuous learning
+
+Q9: Tell Me About a Coworker Conflict
+- Focus on calm communication, resolution, teamwork outcomes
+- Show you addressed it professionally, not avoided it
+- CRM — assertive but respectful
+
+Q10: Long-Term Career Goals
+- Align ambitions with airline growth (regional to major, check airman, international)
+- Show commitment to THIS airline, not as a stepping stone
+
+=== COMMON TMAAT QUESTION CATEGORIES ===
+
+Safety & Judgment:
+- Tell me about a time you discovered a safety issue — what did you do?
+- Tell me about a time you had to put safety above schedule/customer service
+- Tell me about a time you refused to fly / pushed back on an unsafe request
+- Tell me about a time you made a mistake — what happened?
+- Tell me about a time you had to make a difficult decision under pressure
+
+CRM & Crew:
+- Tell me about a time you had a conflict with a Captain / First Officer
+- Tell me about a time you had to be assertive with a more senior crew member
+- Tell me about a time you worked with a difficult crew member
+- Tell me about a time you failed as a leader
+- Tell me about a time you successfully led a team
+
+Customer Service:
+- Tell me about a time you provided exceptional customer service
+- Tell me about a time you turned a stressful situation into a positive experience
+- Tell me about a time you helped someone without being asked
+
+Adaptability:
+- Tell me about a time you had to adapt to a last-minute change
+- Tell me about a time things didn't go as planned in the cockpit
+- Tell me about a time you had to quickly build rapport with someone
+
+Personal Growth:
+- Tell me about your greatest professional achievement
+- Tell me about a time you received critical feedback — how did you respond?
+- Tell me about a time you taught someone else a skill
+
+=== WHAT INTERVIEWERS ARE ACTUALLY EVALUATING ===
+
+From the TMAAT forum thread (experienced airline pilots advising):
+
+1. HOW you answer matters as much as WHAT you answer
+   - Self-awareness, honesty, realistic assessment of yourself
+   - Do NOT use examples that show you violated SOPs or disobeyed management
+   - Do NOT imply regulatory compliance is problematic
+
+2. AVOID these traps:
+   - Using a story where YOU broke a rule, even if outcome was fine
+   - Blaming others in your examples
+   - Examples that show poor CRM (ignoring crew input)
+   - Stories where you "saved the day" by overriding procedures
+
+3. GOOD examples involve:
+   - Customer service scenarios
+   - Genuine teamwork moments
+   - Times you spoke up assertively but professionally
+   - Times you admitted a mistake and learned from it
+   - Times you followed procedures even under pressure
+
+=== SAMPLE ANSWER: Tell Us About Yourself ===
+
+"My name is Jason Stevens, I am 28 years old, married and the father of two young girls. I am currently employed as a Dash 8 First Officer with Central Plains Airlines. I remember from a very young age I always wanted to be a pilot. So when I graduated, I worked full time in a factory to save up enough money to start my Commercial Licence. I also took out a personal loan, which I have almost paid off. This enabled me to enroll in a full time course. I completed my commercial license in 2002 at Proflite Flying School in California and was immediately employed as a flight instructor. I really enjoyed instructing, not only did I get to hone my skills but it was such a pleasure to see my students evolve into pilots, the highlight was always sending them first solo. After two years instructing I was offered a First Officer position with Central Plains Airlines flying the Dash 8. I have been there for three years now and I love it. I feel I am now ready to take the next step in my career and I believe that [Airline] offers the best opportunities for my development."
+
+=== SAMPLE ANSWER: In-Flight Emergency (STAR format) ===
+
+Situation: While flying a regional jet, I encountered a sudden pressurization issue at 30,000 feet. The aircraft's warning system indicated a gradual loss of cabin pressure.
+
+Task: As the First Officer, my role was to assist the Captain in executing the appropriate emergency procedures while maintaining communication with ATC.
+
+Action: I immediately ran the emergency checklist while the Captain initiated a controlled descent to a safer altitude. I communicated clearly with ATC about our emergency, coordinated with the cabin crew about passenger oxygen, and kept the Captain informed of checklist progress and fuel state throughout.
+
+Result: We descended safely to 10,000 feet, the pressurization issue stabilized as a slow seal leak, and we diverted to the nearest suitable airport. All passengers and crew were safe. The debrief afterward helped our whole crew refine our emergency communication procedures.

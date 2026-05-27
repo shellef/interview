@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import VoiceInterview from './VoiceInterview.jsx'
+import RandomMode from './RandomMode.jsx'
 
 const API = '/interview'
 
@@ -59,7 +60,7 @@ function Transcript({ turns }) {
 }
 
 export default function App() {
-  const [mode, setMode] = useState('ai') // 'ai' | 'voice'
+  const [mode, setMode] = useState('practice') // 'practice' | 'ai' | 'voice'
   const [role, setRole] = useState('senior backend engineer')
   const [numTurns, setNumTurns] = useState(3)
   const [loading, setLoading] = useState(false)
@@ -143,30 +144,48 @@ export default function App() {
 
   const hasSession = turns.length > 0
 
+  const tabs = [
+    { id: 'practice', label: 'Practice' },
+    { id: 'voice',    label: 'Voice' },
+    { id: 'ai',       label: 'AI vs AI' },
+  ]
+
+  const header = (
+    <div className="header">
+      <h1>AI Interview</h1>
+      <div className="mode-tabs">
+        {tabs.map(t => (
+          <button
+            key={t.id}
+            className={`tab${mode === t.id ? ' active' : ''}`}
+            onClick={() => setMode(t.id)}
+          >{t.label}</button>
+        ))}
+      </div>
+    </div>
+  )
+
+  if (mode === 'practice') {
+    return (
+      <div className="app">
+        {header}
+        <RandomMode />
+      </div>
+    )
+  }
+
   if (mode === 'voice') {
     return (
-      <>
-        <div className="header">
-          <h1>AI Interview</h1>
-          <div className="mode-tabs">
-            <button className="tab" onClick={() => setMode('ai')}>AI vs AI</button>
-            <button className="tab active">Voice</button>
-          </div>
-        </div>
+      <div className="app">
+        {header}
         <VoiceInterview />
-      </>
+      </div>
     )
   }
 
   return (
     <div className="app">
-      <div className="header">
-        <h1>AI Interview</h1>
-        <div className="mode-tabs">
-          <button className="tab active">AI vs AI</button>
-          <button className="tab" onClick={() => setMode('voice')}>Voice</button>
-        </div>
-      </div>
+      {header}
 
       {!hasSession ? (
         <div className="setup-card">

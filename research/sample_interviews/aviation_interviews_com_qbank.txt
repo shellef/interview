@@ -1,0 +1,96 @@
+SOURCE: https://www.aviationinterviews.com/pilot-interview-questions-and-answers-study-guide.html
+NOTE: This is a sample from the free portion of the aviationinterviews.com question bank, organized by airline.
+
+=== ABX AIR ===
+1. Tell us about yourself.
+2. What was the most difficult decision you made as a pilot?
+3. Tell me about a time you discovered a safety issue and what did you do about it?
+   Sample: "Talked about finding tires with tread worn down on a preflight walk around. Explained my process of reporting..."
+4. How do you stay organized? Sample: "I make lists..."
+5. How do you prevent procrastinating? Sample: "Set goals and work towards achieving them" / "Organization, writing down goals for the day"
+6. What do you know about ABX?
+7. Why ABX?
+8. What are your favorite things about your current job? Sample: "Flexibility"
+9. What are your least favorite things about your current job? Sample: "Unstable income"
+10. Tell me about a time you had to quickly build a rapport with somebody.
+
+=== AIR CANADA ===
+1. How did you get interested in aviation? Sample: "family history"
+2. What would your leadership style be as a captain?
+3. Describe a problem/dispute that you had with a colleague?
+4. How would your former supervisors describe you?
+5. Describe your most memorable flying experience? Sample: "First solo"
+6. How would you feel about being a relief pilot?
+7. What is the greatest achievement in your career to date?
+8. What was the hardest decision you've had to make in your career?
+9. What do you dislike about your present job?
+10. How did you deal with stress? Sample: "Preparing well ahead" / "First, address the stress; second, analyze the source and plan..."
+
+=== AIR CARGO CARRIERS ===
+1. Where do you see yourself in 5 years? Sample: "Check Airman" / "Instructor Captain"
+2. What do you think defines a professional pilot? Sample: "Someone who is knowledgeable, punctual, able to communicate effectively"
+3. What would you do if you lost your medical? Sample: "Request a ground instructor position"
+4. What is V1? Sample: "Takeoff decision speed"
+5. What is V2? Sample: "Takeoff safety speed"
+6. What is a stopway? Sample: "Area at the end of the runway used for deceleration during aborted takeoff, not credited for takeoff roll"
+7. Would you help load the airplane with boxes if ground crew is short-handed? Sample: "Of course"
+8. Where do you see yourself in 10 years? Sample: "Chief Pilot"
+9. What would you do if you witnessed someone sexually harassing someone else? Sample: "I would intervene, try to defuse the situation, report it"
+10. What would you do if a passenger confronted you for going around? Sample: "Explain the safety decision professionally"
+
+=== AIR TRANSPORT INTERNATIONAL ===
+1. On an IFR flight in VFR, who is responsible for separation, you or ATC? Sample: "You — pilot in command"
+2. When is a report to ATC required? Sample: "MARVELOUS CVFR 500 — leaving assigned altitude, entering/leaving holding, missed approach"
+3. What is an LDA? Sample: "A non-precision approach offset from the runway using an ILS localizer"
+4. What are you looking for in an employer/airline? Sample: "Team that functions like a family" / "Stability, great culture"
+5. What is the correlation between temp and lightning strikes? Sample: "Higher temp = greater convective energy = more lightning"
+6. What is the effect of aft CG on performance? Sample: "Rearward CG gives better performance but reduces stability"
+7. What is Mach Tuck? Sample: "A nose down pitch tendency due to shift in center of pressure at high Mach"
+8. What factors are used in calculating performance? Sample: "Temperature, humidity, power available, weight, runway condition"
+9. What is critical Mach? Sample: "The lowest Mach number at which airflow reaches sound speed anywhere on the aircraft"
+10. How did you get into flying?
+
+=== AIR WISCONSIN ===
+1. What is max airspeed in Class C? Sample: "200 knots indicated within 4 nautical miles"
+2. At what altitude does the speed restriction end in Class B airspace? Sample: "10,000 MSL"
+3. What is needed to descend below DA? Sample: "Required visibility and one of 91.175 visual references; must be in position for normal landing"
+4. If flying 121, can you take off when weather is below landing minimums? Sample: "Yes, but you need to file an alternate"
+5. What is BR on a METAR? Sample: "Mist"
+6. How would your current boss describe you? Sample: "Dedicated team player" / "Safety oriented" / "Diligent"
+7. What makes a good airline pilot? Sample: "Safety first, ability to focus, strong CRM, professionalism"
+8. What will be your biggest challenge in training? Sample: "Learning the line" / "Adapting to crew environment after single-pilot ops"
+9. Why do you want to work for Air Wisconsin? Sample: "Structured training, good reputation, stable employment"
+10. What is your leadership style? Sample: "Lead by example" / "Collaborative but decisive"
+
+=== COMMON TECHNICAL QUESTIONS ACROSS AIRLINES ===
+
+Aircraft Knowledge:
+- What is V1/VR/V2/VREF?
+- What happens to stall speed as weight increases? (Increases)
+- What happens to TAS as we climb at constant IAS? (Increases)
+- What happens to Mach number as we descend at constant TAS? (Increases)
+- Explain the coffin corner
+- What is Dutch roll and how do you recover?
+- Describe your aircraft's pressurization system
+- What is a constant speed propeller and how does it work?
+
+Weather/Met:
+- What is a microburst and how do you escape?
+- What is BR/FG/TS/SN on a METAR?
+- Describe a cold front vs warm front
+- What is clear air turbulence?
+- What is a SIGMET vs AIRMET?
+
+Regulations:
+- Part 91 vs 121 vs 135 — key differences
+- What are your currency requirements?
+- Minimum equipment list — can you fly with inoperative equipment?
+- What are the alternate minimums?
+- Rest requirements under Part 117
+
+Navigation:
+- What is a VOR and how does it work?
+- What is GPS RAIM?
+- Describe an RNAV/RNP approach
+- What is a hold entry (parallel, teardrop, direct)?
+- DME arc — how do you fly one?

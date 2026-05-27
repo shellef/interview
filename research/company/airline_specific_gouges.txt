@@ -1,0 +1,185 @@
+SOURCE: https://www.aviationinterviews.com/pilotgougedisplay/delta-air-lines-27.html
+SOURCE: https://www.mypilotinterview.com/post/southwest-airlines-gouge
+SOURCE: https://spitfireelite.com/southwest-pilot-interview-questions-2024/
+SOURCE: https://rotatepilot.com/guides/airline-pilot-interview-guide
+
+=== DELTA AIR LINES ===
+
+INTERVIEW DAY FORMAT:
+- Starts at 6:45 AM sharp — be early, dress professional
+- MMPI psychological assessment (~570 questions) — answer truthfully, don't overthink
+- Panel interview (45 min to 1 hour)
+- Panel: typically 2 Delta pilots + 1 HR representative
+- Conversational format, tailored to individual background
+- Lunch break between groups
+
+QUESTION TYPES:
+- TMAAT (Tell Me About A Time) — behavioral
+- WWYD (What Would You Do) — scenario-based
+- Resume-specific questions
+- "Tell us about yourself / why Delta"
+- NOTE: No technical questions reported in recent gouges
+
+PROCESS NOTES:
+- Group sizes ~18 applicants — high offer rate ("all but one got a CJO")
+- "Be yourself, be truthful" — interviewers reward genuine responses
+- Watch for nonverbal cues from panelists to gauge when to stop
+- Professional logbook printing recommended
+- Book hotel early — rooms near Atlanta HQ fill fast
+
+REQUIREMENTS:
+- Minimum 1,500 flight hours (ATP minimum)
+- Bachelor's degree or equivalent
+- Competitive candidates typically 3,000-5,000+ hours
+
+CULTURE:
+- Delta focuses heavily on CRM, professionalism, and long-term commitment
+- Strong emphasis on TMAAT format — prepare 8-10 solid stories
+
+=== SOUTHWEST AIRLINES ===
+
+INTERVIEW FORMAT:
+- In-person in Dallas, TX
+- Three sections: HR Interview, Logbook Review, Scenario-Based Questions
+- Business attire required
+- Bring: tabbed logbook, resume, flight hour totals, checkride records
+
+LOGBOOK REVIEW (casual conversation with captain):
+- Total flight time, cross-country, PIC, night, instrument, multi-engine
+- Know your 90-day and 12-month totals, monthly averages
+- Any checkride failures — be honest, explain what you learned
+
+HR SECTION (captain + HR rep):
+- "Why Southwest?" — know the culture deeply
+- "What will you bring to Southwest?"
+- Behavioral questions using START method (Situation, Task, Action, Result, Takeaway)
+- Conflict resolution, service excellence, leadership failures, proud moments
+
+SOUTHWEST'S THREE CORE VALUES:
+1. Warrior Spirit — work hard, desire to excel, be courageous
+2. Servant's Heart — follow the Golden Rule, treat others with respect
+3. Fun-LUVing Attitude — have fun, don't take yourself too seriously, celebrate successes
+
+SCENARIO-BASED QUESTIONS (sample):
+1. "You're approaching Dallas Love Field with thunderstorms building. ATC offers a vector to final, but your FO expresses concern about windshear reports..." (78% of interviews)
+   → Show: crew communication, dispatch coordination, go-around decision making, safety over schedule
+
+2. "During preflight, you discover a discrepancy that's not in the logbook but the previous crew mentioned it verbally..." (65%)
+   → Show: MEL knowledge, maintenance coordination, documentation importance, not flying with undocumented discrepancies
+
+3. "Ground crew is rushing to make a 25-minute turn, but you notice they haven't completed the weight and balance paperwork..."
+   → Show: authority to hold departure, safety over on-time performance
+
+CULTURE-FIT QUESTIONS (sample):
+1. "Southwest is known for making flying fun. Describe a time you turned a stressful situation into a positive experience..." (92%)
+2. "Tell us about a time you went above and beyond to help someone, not because it was your job..." (84% of successful candidates)
+3. "A flight attendant approaches you before boarding, clearly overwhelmed by personal issues..."
+
+KEY METRICS:
+- Panel: 2 pilots + 1 HR rep
+- Scoring: 40% technical, 35% cultural alignment, 25% leadership
+- Culture-fit questions: 40% of interview (vs. ~15% at legacy carriers)
+- 73% of 2024 hires came from regional airlines
+- Year 1 pay: ~$69/hour; Year 8: ~$168/hour
+- Process duration: 4-6 weeks total
+
+TIPS:
+- "Be relaxed, friendly, and professional"
+- Interviewers WANT you to succeed — they're not trying to trip you up
+- Southwest differs substantially from legacy carriers — emphasize personality and customer service more than technical mastery
+
+=== UNITED AIRLINES ===
+
+SOURCE: Justin Ritter (United Airlines Chief of Hiring) insights from YouTube (uY-UPlpy6Pw)
+
+Key themes from United's hiring perspective:
+- Looking for people who are team players and safety-focused
+- CRM is extremely important — demonstrate assertiveness and communication
+- They want pilots who will be leaders, not just followers
+- Preparation and professionalism matter — show you've done your homework
+- United values diversity and international experience
+
+Process typically includes:
+- Initial application and screening
+- Video interview (HireVue or similar)
+- In-person assessment day: cognitive tests, sim eval, panel interview
+- TMAAT questions heavily weighted
+- Technical knowledge tested (varies by candidate background)
+
+=== AMERICAN AIRLINES ===
+
+Process (general):
+- Online application with PRIA, FOIA requests required
+- Cognitive/personality assessment
+- In-person interview day in Dallas (HQ)
+- Panel interview: mix of TMAAT and WWYD
+- Simulator evaluation
+- Technical interview component (stronger than Delta's)
+
+Known emphasis:
+- CRM philosophy — how you handle disagreements with captain
+- Safety culture — will you speak up?
+- Professionalism and appearance
+
+=== ALASKA AIRLINES ===
+
+Process:
+- Strong emphasis on the "Alaska Way" — their culture document
+- Panel interview with TMAAT format
+- Technical questions — relatively more technical than Southwest/Delta
+- Simulator evaluation
+
+Culture focus:
+- Genuine care for customers and coworkers
+- Safety above all
+- Humility and continuous learning
+
+=== REGIONAL AIRLINES (General) ===
+
+Common regionals feeding to majors: SkyWest, Envoy, Mesa, Horizon, GoJet, CommutAir, PSA
+
+Format typically simpler:
+- Shorter interview day (half day)
+- TMAAT questions + basic technical
+- Simulator or aircraft knowledge check
+- Often faster hiring decisions
+
+Key differences from majors:
+- Less emphasis on company-specific culture prep
+- More emphasis on basic CRM and technical knowledge
+- Good place to build interview experience before major airline attempt
+
+=== INTERVIEW PROCESS OVERVIEW (ALL AIRLINES) ===
+
+Typical 7-stage process:
+1. Online Application — resume, logbook, certificates, background check authorization
+2. Aptitude Tests — cognitive ability, spatial reasoning, personality
+3. Technical Interview — 20-40 min of aircraft systems, met, regs
+4. HR/Behavioral Interview — STAR method competency evaluation
+5. Simulator Assessment — 30-60 min flight evaluation (basic handling + CRM)
+6. Group Exercise — problem-solving and teamwork (mainly cadet programs)
+7. Final Interview — cultural fit, commitment, Q&A
+
+HOUR REQUIREMENTS:
+- US legacy carriers: 1,500 hours ATP minimum; competitive at 3,000-5,000+
+- US regionals: 1,500 hours ATP minimum
+- European flag carriers: 1,500+ hours typical
+- Middle Eastern (Emirates, Qatar): 3,000-4,000+ hours
+- Cadet programs: Zero hours required
+
+SIMULATOR ASSESSMENT — what evaluators look for:
+- Basic handling skills and instrument scanning
+- Procedural adherence and checklists
+- CRM and communication with crew
+- Decision-making (go-around vs continue judgment)
+- Ability to learn unfamiliar equipment quickly
+- Ability to accept coaching and make corrections
+
+ELIMINATING MISTAKES (common reasons for rejection):
+- Lack of airline-specific research/knowledge
+- Negative comments about previous employers
+- Poor presentation or grooming
+- Overconfidence or arrogance
+- Weak CRM demonstration
+- Inconsistency between application and interview answers
+- Dishonesty about checkride failures

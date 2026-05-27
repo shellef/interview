@@ -1,0 +1,100 @@
+SOURCE: https://passmyinterview.com/pilot-interview/
+
+=== 21 PILOT INTERVIEW QUESTIONS WITH FULL SAMPLE ANSWERS ===
+
+--- Q1: Tell me about yourself and why you want to become a pilot with our airline? ---
+
+"I am highly organized, professional and analytical person who has the right qualities, attributes and temperament to become a competent pilot with your airline. I fully understand and acknowledge that, with the role of a pilot, comes a huge amount of responsibility, and the experiences I have gained in life so far, coupled with my strong work ethics and dedication, make me the perfect candidate for this position. I want to become a pilot with your airline because, having researched your history and your future plans, you are clearly an airline who has a strong reputation amongst your passengers and I feel I would be supported in the role to enable me to carry out my duties to the high standards required."
+
+--- Q2: In your opinion, what qualities should a pilot possess? ---
+
+"The qualities needed to be a competent pilot are numerous and varied. In particular, a pilot needs an ability to remain calm under extreme pressure; the ability to follow rules and procedures and also take responsibility when things go wrong; strong communication skills and an ability to adapt your communication style to suit the audience and the situation; the desire to continually learn, improve and develop; strong team working skills; an ability to concentrate for long periods of time; a passion for delivering strong customer service skills whilst representing the airline you are working for, and also the understanding that you have to act as a positive role model for the airline at all times. In essence, your actions whilst working as a pilot can have an impact on whether or not passengers return to the airline for future travel plans when needed."
+
+--- Q3: Tell me about our airline and what has attracted you to us? ---
+
+Approach: Research the airline's routes, fleet, achievements, culture, recent news, and safety record. Tailor specifically.
+
+Sample structure:
+"Having researched [Airline] extensively, I am attracted to you for several reasons. First, your commitment to safety has been evident in [specific example]. Second, your [fleet/routes/culture] aligns well with my career goals. I have also spoken with current [Airline] pilots who speak highly of the culture and training environment. Most importantly, I believe my values — safety-first, continuous improvement, and professionalism — align with what [Airline] stands for."
+
+--- Q4: What qualities are needed to become an effective leader? ---
+
+"An effective leader in the cockpit needs to balance authority with approachability. They must be decisive when required but also genuinely open to input from the crew. Specific qualities include: clear communication — being able to give direction concisely without ambiguity; situational awareness — maintaining the big picture while managing immediate tasks; adaptability — adjusting leadership style based on the situation and crew; the ability to remain calm under pressure; accountability — taking responsibility when things go wrong rather than deflecting blame; and finally, leading by example in terms of professionalism, preparation, and safety culture."
+
+--- Q5: Describe a time when you had to take a risk whilst at work? ---
+
+STAR format:
+Situation: [Set scene — operational decision that required judgment]
+Task: [Your role and what was at stake]
+Action: [The calculated risk taken, what alternatives you considered]
+Result: [Outcome, what you'd do differently]
+
+Key: Show it was a CALCULATED risk, not reckless. Show you weighed options. Show the outcome was positive OR that you learned from it.
+
+--- Q6: Give me an example of a situation you were in where you had to deal with extreme stress? ---
+
+STAR format. Good examples:
+- Emergency procedure in the aircraft
+- Failed checkride and how you bounced back
+- Difficult weather situation
+- CRM breakdown you helped resolve
+
+Key: Show your PROCESS for managing stress — not that you're immune to it.
+
+--- Q8: Describe a time when you followed strict rules and procedures to complete a complex task? ---
+
+This is about PROCEDURAL ADHERENCE. Airlines want pilots who follow checklists even under pressure.
+
+Sample answer:
+"During a night approach in deteriorating weather, my captain suggested we could skip the approach briefing to save time. I respectfully but firmly insisted we complete the briefing properly, noting that our SOP required it for good reason. We completed the briefing, identified a potential conflict on the approach, and adjusted our plan. The approach was successful and the briefing directly improved our safety margin."
+
+--- Q11: What would you do if your captain arrived intoxicated? ---
+
+"This would be one of the most difficult situations I could face, but I would have no hesitation in the correct course of action. I would speak to the captain privately and respectfully raise my concern: 'I'm worried about you — I don't think you should fly today.' I would then immediately contact our operations department or chief pilot to report the situation. I would not fly the aircraft under any circumstances. The safety of our passengers and crew is paramount, and no schedule pressure, no personal relationship, and no career concern would change that decision. I would document everything carefully afterward."
+
+--- Q12: Your crew members aren't getting along — what do you do? ---
+
+"Crew disharmony is a CRM issue that I take seriously. I would address it proactively rather than hoping it resolves itself. First, I would speak to each crew member individually to understand the situation. Then I would bring them together and set clear expectations: 'We are professionals and our passengers are counting on us to function as a team regardless of personal differences. Let's focus on the mission.' I would monitor the situation throughout the flight and address any further issues immediately. After the flight, I would document and report if the issue was serious enough to affect flight safety."
+
+--- Q13: What would your current employer say is your biggest weakness? ---
+
+Best practice: Give a REAL weakness, then show what you're actively doing about it.
+
+"My current employer would probably say that I sometimes invest too much time ensuring a task is perfect before considering it complete. In aviation, that attention to detail is generally an asset, but it can occasionally slow me down. I've been working on this by using structured checklists and time limits for certain tasks — which actually helps me be more systematic rather than just more thorough."
+
+--- Q15: Can you tell me about any achievements you have experienced during your life so far? ---
+
+Good options:
+- First solo flight
+- Type rating achievement
+- Leadership role in military/previous career
+- Captain upgrade
+- Check airman or instructor qualification
+- Handling a real emergency successfully
+
+--- Q17: What are your weaknesses? ---
+
+Same approach: genuine weakness + active mitigation.
+
+"I have found that in completely unfamiliar environments I can take a little longer to become comfortable. When I joined my current airline, I noticed I was more cautious than necessary in the simulator until I'd built familiarity. I've learned to address this proactively — extra study time, asking questions early, and deliberately seeking out unfamiliar scenarios in training to build that comfort faster."
+
+--- Q19: Provide an example of where you had to make a difficult decision despite pressure from other people? ---
+
+Classic aviation scenario: being pressured to fly when you have concerns.
+
+Sample:
+"We were scheduled to depart with a weather system developing at our destination. Dispatch was pressuring us to go to maintain schedule. My captain, who was less experienced, was inclined to depart immediately. I pulled up the forecast and showed clearly that conditions would be below minimums on arrival. I stated calmly but firmly that we should delay one hour. My captain agreed once he saw the data, and when we arrived, conditions were exactly as I'd forecast — we landed with minimums to spare. Had we gone early, we would have had to divert."
+
+=== ADDITIONAL QUESTIONS FROM PILOTMALL.COM ===
+
+Q: Tell me about a time you broke a rule.
+Best approach: Don't use an example where you violated an FAR. Use an example of a minor workplace rule or procedure that was genuinely ambiguous, and show you reported it or learned from it. Or reframe: "I can't recall breaking an aviation regulation because the consequences are too serious. But I can tell you about a time I FELT pressure to cut corners..."
+
+Q: What measures do you take during inclement weather?
+"Pre-flight: thoroughly brief all available weather — ATIS, METARs, TAFs, PIREPs, SIGMETs, radar. File with alternates that have solid weather. Set personal minimums above regulatory minimums. In flight: monitor weather radar continuously, coordinate with dispatch and ATC for updates, build in fuel contingency for deviations. On approach: go-around is always an option if conditions aren't what was forecast — I never pressure myself or my crew to continue an approach that doesn't feel right."
+
+Q: How do you manage fatigue?
+"I take fatigue management very seriously. Pre-trip: quality sleep in the days before, consistent sleep schedule, limiting alcohol, good nutrition. During trips: maximize rest during layovers, use nap strategies when legal. During flight: clear cockpit procedures for sterile cockpit, challenge/response checklists keep both pilots engaged. And critically — I will call fatigue if I don't feel fit. My airline has a just culture for fatigue reporting and I would always choose safety over showing up for a flight."
+
+Q: How do you maintain work-life balance?
+"Aviation scheduling makes this challenging, but manageable. I'm intentional about my time at home — when I'm off, I'm genuinely off. I maintain hobbies and regular exercise which help me decompress. My family understands the lifestyle and I've been transparent with them about the demands. I find that the time away actually makes my time at home more intentional and meaningful."

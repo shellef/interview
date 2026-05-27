@@ -47,6 +47,7 @@ GOOGLE_TOKEN_URL    = "https://oauth2.googleapis.com/token"
 GOOGLE_USERINFO_URL = "https://www.googleapis.com/oauth2/v3/userinfo"
 
 GOOGLE_ENABLED = bool(GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET)
+REQUIRE_AUTH   = os.environ.get("REQUIRE_AUTH", "true").lower() not in ("false", "0", "no")
 
 
 def _google_redirect_uri() -> str:
@@ -54,6 +55,8 @@ def _google_redirect_uri() -> str:
 
 
 def login_required(request: Request):
+    if not REQUIRE_AUTH:
+        return
     if "user" not in request.session:
         raise HTTPException(status_code=401, detail="Not authenticated")
 
@@ -168,7 +171,7 @@ async def login_google_callback(request: Request):
 
 @app.get("/")
 async def root(request: Request):
-    if "user" not in request.session:
+    if REQUIRE_AUTH and "user" not in request.session:
         return RedirectResponse("/login")
     return FileResponse(_DIST / "index.html")
 
@@ -278,6 +281,135 @@ async def get_voice_token(req: VoiceTokenRequest, _=Depends(login_required)) -> 
     )
 
     return {"token": token, "url": lk_url, "room_name": room_name}
+
+
+# ---------------------------------------------------------------------------
+# Practice mode — single question building block
+# ---------------------------------------------------------------------------
+
+from question_bank import CATEGORIES, get_all_questions, get_question_by_id, get_random_question
+
+
+class QuestionResponse(BaseModel):
+    id: int
+    category: str
+    category_label: str
+    question: str
+
+
+class EvaluateRequest(BaseModel):
+    question_id: int
+    answer: str
+
+
+class EvaluateResponse(BaseModel):
+    score: str          # "strong" | "adequate" | "weak"
+    summary: str        # 1-2 sentence overall assessment
+    covered: list[str]  # key points the answer covered
+    missed: list[str]   # key points missing
+    advice: str         # one concrete improvement tip
+
+
+@app.get("/practice/question")
+def practice_question(category: str | None = None, _=Depends(login_required)) -> QuestionResponse:
+    q = get_random_question(category)
+    return QuestionResponse(**{k: q[k] for k in QuestionResponse.model_fields})
+
+
+@app.get("/practice/categories")
+def practice_categories(_=Depends(login_required)) -> dict:
+    return {"categories": [{"slug": k, "label": v} for k, v in CATEGORIES.items()]}
+
+
+@app.post("/practice/evaluate")
+def practice_evaluate(req: EvaluateRequest, _=Depends(login_required)) -> EvaluateResponse:
+    import anthropic
+    from dotenv import load_dotenv
+
+    load_dotenv(override=True)
+
+    q = get_question_by_id(req.question_id)
+    if not q:
+        raise HTTPException(status_code=404, detail="Question not found")
+
+    client = anthropic.Anthropic()
+
+    system = """You are an expert airline pilot interview coach evaluating a candidate's answer.
+You have deep knowledge of what airline hiring panels look for.
+Return ONLY valid JSON — no markdown, no code fences, no extra text."""
+
+    prompt = f"""Question asked: {q['question']}
+
+Expected answer guidance: {q['expected']}
+
+Key points a strong answer should cover:
+{chr(10).join(f'- {p}' for p in q['key_points'])}
+
+Common mistakes to avoid: {q['avoid']}
+
+Candidate's answer: {req.answer}
+
+Evaluate the answer and return JSON exactly matching this schema:
+{{
+  "score": "strong" | "adequate" | "weak",
+  "summary": "1-2 sentence overall assessment",
+  "covered": ["key point the candidate covered", ...],
+  "missed": ["key point the candidate missed or underdeveloped", ...],
+  "advice": "one concrete, specific thing they should add or change next time"
+}}"""
+
+    response = client.messages.create(
+        model="claude-haiku-4-5",
+        max_tokens=512,
+        system=system,
+        messages=[{"role": "user", "content": prompt}],
+    )
+
+    raw = response.content[0].text.strip()
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        # Strip markdown fences if present
+        raw = re.sub(r"^```[a-z]*\n?", "", raw).rstrip("`").strip()
+        data = json.loads(raw)
+
+    return EvaluateResponse(**data)
+
+
+import re
+import asyncio
+
+
+class SpeakRequest(BaseModel):
+    text: str
+
+
+@app.post("/practice/speak")
+async def practice_speak(req: SpeakRequest, _=Depends(login_required)):
+    """Proxy text to Deepgram TTS and return audio bytes."""
+    import urllib.request as urlreq
+
+    key = os.environ.get("DEEPGRAM_API_KEY", "")
+    if not key:
+        raise HTTPException(status_code=500, detail="DEEPGRAM_API_KEY not set")
+
+    def _fetch():
+        data = json.dumps({"text": req.text}).encode()
+        r = urlreq.Request(
+            "https://api.deepgram.com/v1/speak?model=aura-2-thalia-en&encoding=mp3",
+            data=data,
+            headers={
+                "Authorization": f"Token {key}",
+                "Content-Type": "application/json",
+            },
+            method="POST",
+        )
+        with urlreq.urlopen(r, timeout=15) as resp:
+            return resp.read()
+
+    from fastapi.responses import Response as FResponse
+    audio = await asyncio.to_thread(_fetch)
+    return FResponse(content=audio, media_type="audio/mpeg")
 
 
 @app.post("/interview/{session_id}/judge")
