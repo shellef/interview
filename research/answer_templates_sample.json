@@ -1,0 +1,140 @@
+[
+  {
+    "id": 128,
+    "category": "aerodynamics",
+    "category_label": "Technical — Aerodynamics & Performance",
+    "question": "How does aft CG affect aircraft performance and stability?",
+    "topics": [
+      {
+        "label": "Trim drag reduction",
+        "detail": "Aft CG requires less (or no) down-elevator, reducing the horizontal stabilizer's download force and overall drag in cruise.",
+        "importance": 1,
+        "probe": "Walk me through exactly how that download force changes as you move the CG aft, and why that reduces trim drag."
+      },
+      {
+        "label": "Improved L/D and fuel efficiency",
+        "detail": "With aft CG, the aircraft achieves better lift-to-drag ratio and better fuel economy within the normal envelope.",
+        "importance": 1,
+        "probe": "Can you quantify or estimate how much fuel efficiency improves with a full-aft versus full-forward loading?"
+      },
+      {
+        "label": "Reduced longitudinal static stability",
+        "detail": "Aft CG moves the center of gravity closer to the neutral point, making the aircraft less inherently stable in pitch.",
+        "importance": 1,
+        "probe": "What specifically happens to the aircraft's natural pitch restoring force as CG moves aft?"
+      },
+      {
+        "label": "Increased pilot/autopilot workload",
+        "detail": "The aircraft is more sensitive to pitch inputs and requires more active trimming or autopilot correction to maintain level flight.",
+        "importance": 2,
+        "probe": "Describe what the handling characteristics feel like flying an aft-CG aircraft compared to forward-CG—what does the pilot notice?"
+      },
+      {
+        "label": "Difficult unusual attitude recovery",
+        "detail": "When pitched up or down, an aft-CG aircraft resists return to level flight, making stall or dive recovery slower and harder.",
+        "importance": 2,
+        "probe": "If you entered an inadvertent stall in an aft-CG aircraft, why would pitch recovery be more difficult than in a forward-CG aircraft?"
+      },
+      {
+        "label": "Aft limit and loss of control",
+        "detail": "Beyond the aft CG limit, the aircraft loses effective pitch control authority and can become uncontrollable.",
+        "importance": 1,
+        "probe": "What happens aerodynamically when CG moves beyond the aft limit that makes control impossible?"
+      },
+      {
+        "label": "Forward CG trade-off (bonus)",
+        "detail": "Forward CG provides more pitch stability but increases trim drag and reduces cruise efficiency and range.",
+        "importance": 3,
+        "probe": "In what operational scenarios would you deliberately choose a forward-CG loading despite the efficiency penalty?"
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "category": "behavioral",
+    "category_label": "Competency / Behavioral — TMAAT",
+    "question": "Tell me about a time you made a tough decision despite pressure from others.",
+    "topics": [
+      {
+        "label": "Specific Decision & Pressure Source",
+        "detail": "State the exact go/no-go or operational decision and who was pushing back (captain, dispatch, crew, time pressure).",
+        "importance": 1,
+        "probe": "Who specifically was applying the pressure, and what were they asking you to do?"
+      },
+      {
+        "label": "Decision Rationale",
+        "detail": "Explain the objective data, procedure, or regulation that drove your decision (weather minimums, fuel calculations, maintenance, CRM concern).",
+        "importance": 1,
+        "probe": "Walk me through the actual data or procedure you relied on to make that call."
+      },
+      {
+        "label": "How You Communicated It",
+        "detail": "Describe how you presented your position respectfully but firmly—using facts, crew coordination, or escalation if needed.",
+        "importance": 2,
+        "probe": "What exactly did you say to the captain in that moment, and how did you phrase it?"
+      },
+      {
+        "label": "Maintaining Integrity Under Pressure",
+        "detail": "Show that you didn't waffle, second-guess yourself, or cave to social/schedule pressure once you had committed to the decision.",
+        "importance": 2,
+        "probe": "At any point did you have doubts, and if so, how did you work through them?"
+      },
+      {
+        "label": "Outcome & Validation",
+        "detail": "Explain what happened as a result (safe diversion, avoided incident, crew gained respect, or external event proved you right).",
+        "importance": 2,
+        "probe": "How did that situation ultimately resolve, and what did you learn from it?"
+      },
+      {
+        "label": "Reflection on Decision Integrity",
+        "detail": "Connect the story back to why maintaining integrity under pressure matters in an airline safety culture.",
+        "importance": 2,
+        "probe": "What did this experience teach you about standing by your decisions in high-stakes moments?"
+      }
+    ]
+  },
+  {
+    "id": 207,
+    "category": "company",
+    "category_label": "Company-Specific",
+    "question": "What is the biggest challenge or opportunity facing us in the next 5-10 years?",
+    "topics": [
+      {
+        "label": "Airline-Specific Challenge",
+        "detail": "Name one concrete operational, financial, or market challenge this airline has publicly acknowledged or faced recently.",
+        "importance": 1,
+        "probe": "What specifically happened with that challenge, and how is the airline currently addressing it?"
+      },
+      {
+        "label": "Strategic Opportunity Frame",
+        "detail": "Reframe that challenge as a competitive advantage if executed well, explaining why this airline is positioned to lead.",
+        "importance": 1,
+        "probe": "Walk me through how addressing this positions [airline] ahead of competitors specifically."
+      },
+      {
+        "label": "Company's Public Strategy",
+        "detail": "Reference the airline's stated strategic initiatives (fleet plans, fleet modernization, sustainability goals, labor relations, customer experience) that directly tackle the opportunity.",
+        "importance": 2,
+        "probe": "Can you give me a specific example of how that strategy is already playing out operationally?"
+      },
+      {
+        "label": "Industry Tailwind Alignment",
+        "detail": "Connect the airline's approach to a broader industry trend (SAF adoption, AI/automation, loyalty programs, premium product) where they have momentum.",
+        "importance": 2,
+        "probe": "How does that trend change what you'd expect from pilots at [airline] going forward?"
+      },
+      {
+        "label": "Your Personal Connection",
+        "detail": "Briefly explain how your flying background, skills, or mindset enable you to contribute to addressing that challenge.",
+        "importance": 2,
+        "probe": "Give me a concrete example of how you've helped solve a similar problem before."
+      },
+      {
+        "label": "Avoid Generic Platitudes",
+        "detail": "Do not describe fuel costs, weather, or ATC delays as the airline's unique challenge—these are industry-wide problems.",
+        "importance": 1,
+        "probe": "That's a challenge for all airlines. What's specific to [airline]'s competitive position?"
+      }
+    ]
+  }
+]

@@ -334,46 +334,49 @@ def practice_evaluate(req: EvaluateRequest, _=Depends(login_required)) -> Evalua
 
     client = anthropic.Anthropic()
 
-    system = """You are an expert airline pilot interview coach evaluating a candidate's answer.
-You have deep knowledge of what airline hiring panels look for.
-Return ONLY valid JSON — no markdown, no code fences, no extra text."""
+    system = "You are an expert airline pilot interview coach evaluating a candidate's answer."
 
-    prompt = f"""Question asked: {q['question']}
+    prompt = f"""Question: {q['question']}
 
-Expected answer guidance: {q['expected']}
+Expected guidance: {q['expected']}
 
-Key points a strong answer should cover:
+Key points a strong answer covers:
 {chr(10).join(f'- {p}' for p in q['key_points'])}
 
-Common mistakes to avoid: {q['avoid']}
+Common mistakes: {q['avoid']}
 
-Candidate's answer: {req.answer}
-
-Evaluate the answer and return JSON exactly matching this schema:
-{{
-  "score": "strong" | "adequate" | "weak",
-  "summary": "1-2 sentence overall assessment",
-  "covered": ["key point the candidate covered", ...],
-  "missed": ["key point the candidate missed or underdeveloped", ...],
-  "advice": "one concrete, specific thing they should add or change next time"
-}}"""
+Candidate's answer: {req.answer}"""
 
     response = client.messages.create(
         model="claude-haiku-4-5",
         max_tokens=512,
         system=system,
         messages=[{"role": "user", "content": prompt}],
+        tools=[{
+            "name": "evaluate_answer",
+            "description": "Submit the structured evaluation of the candidate's answer.",
+            "strict": True,
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "score":   {"type": "string", "enum": ["strong", "adequate", "weak"]},
+                    "summary": {"type": "string", "description": "1-2 sentence overall assessment"},
+                    "covered": {"type": "array",  "items": {"type": "string"}, "description": "Key points the candidate covered"},
+                    "missed":  {"type": "array",  "items": {"type": "string"}, "description": "Key points missing or underdeveloped"},
+                    "advice":  {"type": "string", "description": "One concrete improvement tip"},
+                },
+                "required": ["score", "summary", "covered", "missed", "advice"],
+                "additionalProperties": False,
+            },
+        }],
+        tool_choice={"type": "tool", "name": "evaluate_answer"},
     )
 
-    raw = response.content[0].text.strip()
-    try:
-        data = json.loads(raw)
-    except json.JSONDecodeError:
-        # Strip markdown fences if present
-        raw = re.sub(r"^```[a-z]*\n?", "", raw).rstrip("`").strip()
-        data = json.loads(raw)
+    for block in response.content:
+        if block.type == "tool_use":
+            return EvaluateResponse(**block.input)
 
-    return EvaluateResponse(**data)
+    raise HTTPException(status_code=500, detail="Evaluation produced no result")
 
 
 import re
@@ -382,6 +385,42 @@ import asyncio
 
 class SpeakRequest(BaseModel):
     text: str
+
+
+from fastapi import File, UploadFile
+
+
+@app.post("/practice/transcribe")
+async def practice_transcribe(audio: UploadFile = File(...), _=Depends(login_required)):
+    """Send recorded audio to Deepgram nova-3 and return the transcript."""
+    import urllib.request as urlreq
+
+    key = os.environ.get("DEEPGRAM_API_KEY", "")
+    if not key:
+        raise HTTPException(status_code=500, detail="DEEPGRAM_API_KEY not set")
+
+    audio_bytes = await audio.read()
+    content_type = audio.content_type or "audio/webm"
+
+    def _transcribe():
+        r = urlreq.Request(
+            "https://api.deepgram.com/v1/listen?model=nova-3&smart_format=true&language=en",
+            data=audio_bytes,
+            headers={
+                "Authorization": f"Token {key}",
+                "Content-Type": content_type,
+            },
+            method="POST",
+        )
+        with urlreq.urlopen(r, timeout=30) as resp:
+            return json.loads(resp.read())
+
+    result = await asyncio.to_thread(_transcribe)
+    try:
+        transcript = result["results"]["channels"][0]["alternatives"][0]["transcript"]
+    except (KeyError, IndexError):
+        transcript = ""
+    return {"transcript": transcript}
 
 
 @app.post("/practice/speak")
