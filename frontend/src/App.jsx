@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import VoiceInterview from './VoiceInterview.jsx'
 import RandomMode from './RandomMode.jsx'
+import CheatsheetMode from './CheatsheetMode.jsx'
 
 const API = '/interview'
 
@@ -60,7 +61,15 @@ function Transcript({ turns }) {
 }
 
 export default function App() {
-  const [mode, setMode] = useState('practice') // 'practice' | 'ai' | 'voice'
+  const initialTab = new URLSearchParams(window.location.search).get('tab') || 'practice'
+  const [mode, setMode] = useState(initialTab)
+
+  function switchTab(tab) {
+    setMode(tab)
+    const url = new URL(window.location)
+    url.searchParams.set('tab', tab)
+    window.history.replaceState({}, '', url)
+  }
   const [role, setRole] = useState('senior backend engineer')
   const [numTurns, setNumTurns] = useState(3)
   const [loading, setLoading] = useState(false)
@@ -158,20 +167,19 @@ export default function App() {
           <button
             key={t.id}
             className={`tab${mode === t.id ? ' active' : ''}`}
-            onClick={() => setMode(t.id)}
+            onClick={() => switchTab(t.id)}
           >{t.label}</button>
         ))}
       </div>
     </div>
   )
 
+  if (mode === 'cheatsheet') {
+    return <div className="app"><CheatsheetMode /></div>
+  }
+
   if (mode === 'practice') {
-    return (
-      <div className="app">
-        {header}
-        <RandomMode />
-      </div>
-    )
+    return <div className="app">{header}<RandomMode /></div>
   }
 
   if (mode === 'voice') {

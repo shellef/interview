@@ -1,12 +1,20 @@
 """FastAPI backend for the AI Interview system."""
+import asyncio
 import json
 import os
+import re
 import secrets
 import urllib.parse
 import urllib.request
 import uuid
-
 from pathlib import Path
+
+import anthropic
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
+
+client = anthropic.Anthropic()
 
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -287,7 +295,7 @@ async def get_voice_token(req: VoiceTokenRequest, _=Depends(login_required)) -> 
 # Practice mode — single question building block
 # ---------------------------------------------------------------------------
 
-from question_bank import CATEGORIES, get_all_questions, get_question_by_id, get_random_question
+from question_bank import CATEGORIES, get_all_questions, get_question_by_id, get_random_question, get_template
 
 
 class QuestionResponse(BaseModel):
@@ -310,6 +318,234 @@ class EvaluateResponse(BaseModel):
     advice: str         # one concrete improvement tip
 
 
+MAX_FOLLOWUPS = 3   # max probe rounds before forcing evaluation
+
+
+class Turn(BaseModel):
+    role: str     # "interviewer" | "candidate"
+    content: str
+
+
+class TurnRequest(BaseModel):
+    question_id: int
+    turns: list[Turn]   # full conversation so far (not including initial question)
+
+
+class TurnResponse(BaseModel):
+    action: str                  # "probe" | "done"
+    probe: str | None = None     # next question to ask (action=probe)
+    topic: str | None = None     # which topic the probe targets
+    result: EvaluateResponse | None = None  # filled when action=done
+
+
+@app.post("/practice/turn")
+def practice_turn(req: TurnRequest, _=Depends(login_required)) -> TurnResponse:
+    q = get_question_by_id(req.question_id)
+    if not q:
+        raise HTTPException(status_code=404, detail="Question not found")
+
+    tmpl = get_template(req.question_id)
+    topics = tmpl["topics"] if tmpl else []
+
+
+    # Count candidate turns so far
+    candidate_turns = [t for t in req.turns if t.role == "candidate"]
+    force_done = len(candidate_turns) >= MAX_FOLLOWUPS + 1  # initial + follow-ups
+
+    # Build conversation string for the prompt
+    convo = "\n".join(
+        f"{'Interviewer' if t.role == 'interviewer' else 'Candidate'}: {t.content}"
+        for t in req.turns
+    )
+
+    topics_list = "\n".join(
+        f"- [{['required','important','bonus'][t['importance']-1].upper()}] {t['label']}: {t['detail']}"
+        for t in topics
+    )
+
+    system = "You are assessing coverage of interview topics. Be strict: a topic is only covered if the candidate explicitly addressed it."
+
+    # Numbered topic list for Claude to reference by index
+    numbered_topics = "\n".join(
+        f"{i}. [{['REQUIRED','IMPORTANT','BONUS'][t['importance']-1]}] {t['label']}: {t['detail']}"
+        for i, t in enumerate(topics)
+    )
+
+    if force_done:
+        prompt = f"""Interview question: {q['question']}
+
+Expected topics:
+{numbered_topics}
+
+Conversation so far:
+{convo}
+
+Evaluate the candidate's performance across the full conversation."""
+        tool_choice = {"type": "tool", "name": "evaluate"}
+    else:
+        prompt = f"""Interview question: {q['question']}
+
+Expected topics (numbered):
+{numbered_topics}
+
+Conversation so far:
+{convo}
+
+Which REQUIRED or IMPORTANT topics have NOT been addressed by the candidate?
+- If any are missing, return the index of the single most important uncovered topic.
+- If all REQUIRED and IMPORTANT topics are covered, evaluate instead.
+- Never select a BONUS topic."""
+        tool_choice = {"type": "any"}
+
+    tools = [
+        {
+            "name": "probe_topic",
+            "description": "Ask a natural follow-up question targeting one specific uncovered topic.",
+            "strict": True,
+            "input_schema": {
+                "type": "object",
+                "additionalProperties": False,
+                "required": ["topic_index", "probe"],
+                "properties": {
+                    "topic_index": {
+                        "type": "integer",
+                        "description": "0-based index of the uncovered topic",
+                    },
+                    "probe": {
+                        "type": "string",
+                        "description": (
+                            "One short, natural follow-up question for that topic. "
+                            "Sound like a real interviewer. Do not mention topics outside the list."
+                        ),
+                    },
+                },
+            },
+        },
+        {
+            "name": "evaluate",
+            "description": "All key topics are covered — give the final evaluation.",
+            "strict": True,
+            "input_schema": {
+                "type": "object",
+                "additionalProperties": False,
+                "required": ["score", "summary", "covered", "missed", "advice"],
+                "properties": {
+                    "score":   {"type": "string", "enum": ["strong", "adequate", "weak"]},
+                    "summary": {"type": "string"},
+                    "covered": {"type": "array", "items": {"type": "string"}},
+                    "missed":  {"type": "array", "items": {"type": "string"}},
+                    "advice":  {"type": "string"},
+                },
+            },
+        },
+    ]
+
+    response = client.messages.create(
+        model="claude-haiku-4-5",
+        max_tokens=256,
+        system=system,
+        messages=[{"role": "user", "content": prompt}],
+        tools=tools,
+        tool_choice=tool_choice,
+    )
+
+    for block in response.content:
+        if block.type == "tool_use":
+            if block.name == "probe_topic":
+                idx = block.input["topic_index"]
+                probe_text = block.input.get("probe", "")
+                if 0 <= idx < len(topics) and probe_text:
+                    return TurnResponse(action="probe", probe=probe_text, topic=topics[idx]["label"])
+            if block.name == "evaluate":
+                return TurnResponse(action="done", result=EvaluateResponse(**block.input))
+
+    raise HTTPException(status_code=500, detail="No tool call returned")
+
+
+class StudyQuestion(BaseModel):
+    id: int
+    category: str
+    category_label: str
+    question: str
+    topics: list[dict]
+
+
+@app.get("/practice/study-question")
+def study_question(category: str | None = None, _=Depends(login_required)) -> StudyQuestion:
+    q   = get_random_question(category)
+    tmpl = get_template(q["id"])
+    return StudyQuestion(
+        id=q["id"], category=q["category"], category_label=q["category_label"],
+        question=q["question"],
+        topics=tmpl["topics"] if tmpl else [],
+    )
+
+
+@app.get("/practice/cheatsheet")
+def question_cheatsheet(question_id: int, topic: str | None = None, _=Depends(login_required)):
+    """
+    Initial question: return a sample answer covering all key points.
+    Follow-up: return the focused topic label + a short answer for just that topic.
+    """
+    q    = get_question_by_id(question_id)
+    tmpl = get_template(question_id)
+    if not q:
+        raise HTTPException(status_code=404, detail="Question not found")
+
+    if topic:
+        # Follow-up mode: answer only the specific topic being probed
+        topic_detail = next(
+            (t["detail"] for t in (tmpl["topics"] if tmpl else []) if t["label"] == topic),
+            topic,
+        )
+        content = (
+            f"Interview question: {q['question']}\n"
+            f"Follow-up topic: {topic}\n"
+            f"What this means: {topic_detail}"
+        )
+    else:
+        # Initial question mode: cover all required/important topics
+        key_points = "\n".join(
+            f"- {t['label']}: {t['detail']}"
+            for t in (tmpl["topics"] if tmpl else [])
+            if t["importance"] in (1, 2)
+        )
+        content = f"Interview question: {q['question']}\n\nKey points to cover:\n{key_points}"
+
+    response = client.messages.create(
+        model="claude-haiku-4-5",
+        max_tokens=120,
+        system=(
+            "You are an experienced airline pilot in a job interview. "
+            "Give a concise, natural answer — 2 sentences maximum. "
+            "Be specific. Sound like a pilot speaking, not a textbook."
+        ),
+        messages=[{"role": "user", "content": content}],
+    )
+
+    return {
+        "id":             q["id"],
+        "category_label": q["category_label"],
+        "question":       q["question"],
+        "topic":          topic,          # None for initial, label string for follow-ups
+        "answer":         response.content[0].text,
+    }
+
+
+@app.get("/practice/template")
+def question_template(question_id: int, _=Depends(login_required)):
+    q    = get_question_by_id(question_id)
+    tmpl = get_template(question_id)
+    if not q:
+        raise HTTPException(status_code=404, detail="Question not found")
+    return {
+        "id":             q["id"],
+        "category_label": q["category_label"],
+        "question":       q["question"],
+        "topics":         tmpl["topics"] if tmpl else [],
+    }
+
+
 @app.get("/practice/question")
 def practice_question(category: str | None = None, _=Depends(login_required)) -> QuestionResponse:
     q = get_random_question(category)
@@ -323,16 +559,10 @@ def practice_categories(_=Depends(login_required)) -> dict:
 
 @app.post("/practice/evaluate")
 def practice_evaluate(req: EvaluateRequest, _=Depends(login_required)) -> EvaluateResponse:
-    import anthropic
-    from dotenv import load_dotenv
-
-    load_dotenv(override=True)
-
     q = get_question_by_id(req.question_id)
     if not q:
         raise HTTPException(status_code=404, detail="Question not found")
 
-    client = anthropic.Anthropic()
 
     system = "You are an expert airline pilot interview coach evaluating a candidate's answer."
 
@@ -377,10 +607,6 @@ Candidate's answer: {req.answer}"""
             return EvaluateResponse(**block.input)
 
     raise HTTPException(status_code=500, detail="Evaluation produced no result")
-
-
-import re
-import asyncio
 
 
 class SpeakRequest(BaseModel):

@@ -70,6 +70,7 @@ export default function RandomMode() {
           key={question.id}
           question={question}
           onDone={() => setDone(true)}
+          onStop={() => { setQuestion(null); setDone(false) }}
         />
       )}
 

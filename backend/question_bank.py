@@ -1,4 +1,5 @@
 """Parse and serve questions from the question bank file."""
+import json
 import os
 import random
 import re
@@ -87,9 +88,19 @@ def _parse_bank(path: Path) -> list[dict]:
     return questions
 
 
+# Questions removed from the active pool (pure factual trivia, not interview questions)
+_SKIP_IDS: set[int] = {
+    190,   # How many aircraft do we operate and what are our main bases?
+    192,   # Who are the CEO, Director of Flight Operations, and Chief Pilot?
+    193,   # What is our financial performance — revenue, passengers carried, growth?
+    202,   # What are Southwest's three core values? (memorisation, not insight)
+    204,   # What new aircraft do we have on order?
+}
+
+
 @lru_cache(maxsize=1)
 def get_all_questions() -> list[dict]:
-    return _parse_bank(BANK_PATH)
+    return [q for q in _parse_bank(BANK_PATH) if q["id"] not in _SKIP_IDS]
 
 
 def get_random_question(category: str | None = None) -> dict:
@@ -109,3 +120,21 @@ def get_question_by_id(q_id: int) -> dict | None:
         if q["id"] == q_id:
             return q
     return None
+
+
+# ── Answer templates ──────────────────────────────────────────────────────────
+
+TEMPLATES_PATH = Path(__file__).parent.parent / "research" / "answer_templates.json"
+
+
+@lru_cache(maxsize=1)
+def get_all_templates() -> dict[int, dict]:
+    """Return {question_id: template_entry}."""
+    if not TEMPLATES_PATH.exists():
+        return {}
+    data = json.loads(TEMPLATES_PATH.read_text(encoding="utf-8"))
+    return {entry["id"]: entry for entry in data}
+
+
+def get_template(q_id: int) -> dict | None:
+    return get_all_templates().get(q_id)
